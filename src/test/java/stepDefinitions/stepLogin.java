@@ -10,6 +10,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import managers.FileReaderManager;
 import managers.PageObjectManager;
+import managers.WebDriverManager;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 
@@ -19,14 +20,14 @@ public class stepLogin {
 	HomePage homePage;
 	LoginPage loginPage;
 	PageObjectManager pageObjectManager;
+	WebDriverManager driverManager;
 	
 	@Given("^user is on Home Page$")
 	public void user_is_on_Home_Page() throws Throwable {
-	    System.setProperty("webdriver.chrome.driver",FileReaderManager.getInstance().getConfigReader().getDriverPath());
-	    driver=new ChromeDriver();
-	    driver.manage().window().maximize();
-	    driver.manage().timeouts().implicitlyWait(FileReaderManager.getInstance().getConfigReader().getImplicitlyWait(), TimeUnit.SECONDS);
+	    driverManager=new WebDriverManager();
+	    driver=driverManager.getDriver();
 	    driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
+	    
 	}
 
 	@When("^he click on Dang Nhap button$")
@@ -53,6 +54,7 @@ public class stepLogin {
 	@Then("^login successfully and username is displayed$")
 	public void login_successfully_and_username_is_displayed() throws Throwable {
 	    loginPage.verify_Login();
+	    
 	   
 	}
 	
