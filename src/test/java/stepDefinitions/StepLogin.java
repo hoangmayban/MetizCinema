@@ -15,7 +15,7 @@ import managers.WebDriverManager;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 
-public class stepLogin {
+public class StepLogin {
 
 	WebDriver driver;
 	HomePage homePage;
@@ -23,7 +23,7 @@ public class stepLogin {
 	TestContext testContext;
 	FileReaderManager fileReaderManager;
 	
-	public stepLogin(TestContext context) {
+	public StepLogin(TestContext context) {
 		
 		testContext=context;
 		homePage=testContext.getPageObjectManager().getHomePage();
