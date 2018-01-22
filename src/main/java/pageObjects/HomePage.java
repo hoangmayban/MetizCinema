@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import managers.FileReaderManager;
 import managers.WebDriverManager;
 import net.bytebuddy.asm.Advice.This;
 
@@ -21,5 +22,9 @@ public class HomePage {
 	
 	public void clickon_DangNhap() {
 		a_Login.click();
+	}
+	
+	public void navigate_AppURL() {
+		driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 	}
 }
