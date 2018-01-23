@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import testDataTypes.Account;
+
 public class LoginPage {
 
 	public LoginPage(WebDriver driver) {
@@ -28,9 +30,9 @@ public class LoginPage {
 	@FindBy(xpath="//a[@href=\"/profile/\"]")
 	private WebElement a_Profile;
 	
-	public void enter_Data() {
-		btn_Email.sendKeys("v2hoang@gmail.com");
-		btn_Password.sendKeys("Abc@1234");
+	public void enter_Data(Account account) {
+		btn_Email.sendKeys(account.email);
+		btn_Password.sendKeys(account.password);
 		
 	}
 	

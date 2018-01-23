@@ -14,6 +14,7 @@ import managers.PageObjectManager;
 import managers.WebDriverManager;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
+import testDataTypes.Account;
 
 public class StepLogin {
 
@@ -44,10 +45,10 @@ public class StepLogin {
 	
 	}
 
-	@When("^enter email and password at Login Page$")
-	public void enter_email_and_password_at_Login_Page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		loginPage.enter_Data();
+	@When("^enter email and password of valid \"([^\"]*)\" at Login Page$")
+	public void enter_email_and_password_at_Login_Page(String accountEmail) throws Throwable {
+		Account account=FileReaderManager.getInstance().getJsonReader().getAccountByEmail(accountEmail);
+		loginPage.enter_Data(account);
 	}
 
 	@When("^click on DangNhap button at Login Page$")
