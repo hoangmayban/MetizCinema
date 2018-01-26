@@ -1,10 +1,17 @@
 package managers;
 
 import java.util.concurrent.TimeUnit;
+
+import javax.lang.model.element.Element;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import enums.DriverType;
 import enums.EnvironmentType;
 
@@ -55,6 +62,13 @@ public class WebDriverManager {
 		return driver;
 	}	
 
+	public void waitForElement() {
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+	
+		
+	}
+	
 	public void closeDriver() {
 		driver.close();
 		

@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.NoSuchElementException;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -42,8 +43,8 @@ public class LoginPage {
 	
 	public void verify_Login() {
 		try {
-			if(a_Profile.isDisplayed());
-			System.out.println("login thanh cong");
+			Assert.assertTrue(a_Profile.isEnabled());
+			
 		}
 		catch(NoSuchElementException e) {
 			System.out.println(e.getMessage().toString());
