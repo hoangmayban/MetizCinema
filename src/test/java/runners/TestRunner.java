@@ -15,6 +15,7 @@ import managers.FileReaderManager;
 @CucumberOptions( 
 		features = "src/test/resources/TestCases",
 		glue= {"stepDefinitions"},
+		tags= {"~@testlink"},
 		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		monochrome=true
 		)
